@@ -1,0 +1,212 @@
+/* .login_container{
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+
+}
+
+.panel-left{
+    width: 50%;
+    height: 100vh;
+    background-image: url('/left_login_img.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.panel-left h1{
+    font-size: 2.6rem;
+    font-weight: 700;
+    color:aliceblue;
+    margin-block: 0;
+}
+
+.title-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 450px;
+}
+
+.title-left p{
+    color: aliceblue;
+    font-size: 1.7rem;
+    margin-block-start: 0;
+}
+.panel-right{
+    width: 50%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-right h1{
+    font-size: 2.3rem;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.title-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline:50px;
+}
+
+
+.title-right h1{
+    color: rgb(61, 123, 181);
+    font-size: 3rem;
+    margin-block: 0;
+}
+
+.login-form{
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+} */
+
+/* Estilo general del contenedor de login */
+.login_container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Panel izquierdo con imagen de fondo */
+  .panel-left {
+    width: 50%;
+    height: 100vh;
+    background-image: url('/left_login_img.jpeg'); /* Cambia al path correcto si es necesario */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 450px;
+  }
+  
+  .panel-left h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: aliceblue;
+    margin-block: 0;
+  }
+  
+  .title-left p {
+    color: aliceblue;
+    font-size: 1.7rem;
+    margin-block-start: 0;
+  }
+  
+  /* Panel derecho con el formulario */
+  .panel-right {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
+  
+  .title-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .title-right h1 {
+    color: #1d70b8;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-block: 0;
+  }
+  
+  .title-right p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0 20px 0;
+    text-align: center;
+  }
+  
+  /* Estilos del formulario */
+  .login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .caja-input,
+  .full-width {
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  /* Enlace de contraseña */
+  .forgot-password {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .forgot-password a {
+    color: #1d70b8;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Botón de ingresar */
+  .login-button {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #1d70b8;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+
+  .login-button a{
+    font-size: 1.5rem;
+  }
+  
+  .login-button:hover {
+    background-color: #155a96;
+  }
+  
+  
