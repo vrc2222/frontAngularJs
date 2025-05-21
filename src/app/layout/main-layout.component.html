@@ -1,0 +1,26 @@
+<mat-sidenav-container class="layout-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <h2 class="menu-title">Menu</h2>
+    <button mat-button routerLink="/home" routerLinkActive="active-link">
+      <mat-icon>home</mat-icon> Home
+    </button>
+    <button mat-button routerLink="/users" routerLinkActive="active-link">
+      <mat-icon>group</mat-icon> Users
+    </button>
+    <button mat-button routerLink="/dashboard" routerLinkActive="active-link">
+      <mat-icon>dashboard</mat-icon> Dashboard
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- 🔹 Banner visual separado -->
+    <div class="banner">
+      <img src="header_img.jpeg" alt="Salud IA" />
+    </div>
+
+    <!-- 🔹 Contenido dinámico -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

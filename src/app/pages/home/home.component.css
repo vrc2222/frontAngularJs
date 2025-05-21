@@ -48,11 +48,7 @@ body {
     background-color: white;
 }
 
-.banner img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
+
 
 .section {
     padding-inline: 2rem;
@@ -96,11 +92,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.user-panel {
-    height: 200px;
-    background-color: #cddff3;
-    border-radius: 10px;
-}
 
 .search-bar {
     display: flex;
@@ -120,3 +111,69 @@ body {
     width: 100%;
     max-width: 600px;
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 350px;
+}
+
+.modal-content form label {
+  display: block;
+  margin: 10px 0;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.usuario-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+}
+.user-panel {
+  max-height: 400px; /* o lo que desees */
+  overflow-y: auto;
+  background-color: #cddff3;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.tabla-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #e3efff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.tabla-usuarios th {
+  background-color: #c2dcf7;
+  font-weight: bold;
+}
+
+.tabla-usuarios tr:hover {
+  background-color: #dbefff;
+}
+

@@ -208,5 +208,11 @@
   .login-button:hover {
     background-color: #155a96;
   }
-  
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
   

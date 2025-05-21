@@ -1,24 +1,35 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private readonly TOKEN_KEY= 'auth-token';
+  private readonly TOKEN_KEY = 'auth-token';
+  private path = 'http://localhost:5000/user';
+  private readonly _http = inject(HttpClient);
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) {}
 
-  login(username:string, password:string): boolean{
-    if (username==='admin'&& password==='123'){
-      localStorage.setItem(this.TOKEN_KEY,'fake_token')
-      return true
-    }
-    return false
+  login(params: any) {
+    return this._http.post<any>(`${this.path}/validateUser`, params);
   }
 
-  isLoggedIn():boolean{
-    return localStorage.getItem(this.TOKEN_KEY) !=null;
-    
+  // Poner funciones service
+
+  create(params: any) {
+    return this._http.post<any>(`${this.path}/create`, params);
+  }
+
+  getUsers() {
+    return this._http.get<any>(`${this.path}/users`);
+  }
+
+  isLoggedIn(): boolean {
+    return localStorage.getItem(this.TOKEN_KEY) != null;
+  }
+  delete(params: any) {
+    return this._http.put<any>('http://localhost:5000/user/deleteUser', params);
   }
 }
