@@ -107,4 +107,84 @@ export class UsersComponent implements OnInit {
       },
     });
   }
+  mostrarEditarModal = false;
+
+  usuarioAEditar = {
+    id: 0, // 🔹 solo para backend
+    username: '',
+    email: '',
+    identification: '',
+  };
+
+  abrirEditarModal(user: any): void {
+    this.usuarioAEditar = { ...user }; // clona el usuario seleccionado
+    this.mostrarEditarModal = true;
+    console.log('✏️ Abriendo modal de edición para:', user.username);
+  }
+
+  cerrarEditarModal(): void {
+    this.mostrarEditarModal = false;
+  }
+  guardarEdicion(): void {
+    const datosActualizados = {
+      id: this.usuarioAEditar.id, // requerido por el backend
+      username: this.usuarioAEditar.username,
+      email: this.usuarioAEditar.email,
+    };
+
+    this.userService.update(datosActualizados).subscribe({
+      next: () => {
+        alert('✅ Usuario actualizado correctamente.');
+        this.cerrarEditarModal();
+        this.obtenerUsuarios();
+      },
+      error: (err) => {
+        console.error('Error al actualizar usuario:', err);
+        alert('❌ Error al actualizar el usuario.');
+      },
+    });
+  }
+
+  signals: any[] = [];
+  selectedSignalId: number | null = null;
+  mostrarSelectorSenal: boolean = false;
+
+
+  abrirSelectorSenal() {
+  console.log("Botón presionado");
+  this.mostrarSelectorSenal = true;
+  this.cargarTodasLasSenales();
+}
+
+cargarTodasLasSenales() {
+  this.http.get<any[]>('http://localhost:5000/dashboard/signals')
+    .subscribe(data => {
+      console.log("Señales cargadas:", data);
+      this.signals = data;
+    });
+}
+
+asignarSignal() {
+  if (!this.selectedSignalId || !this.usuarioAEditar?.id) {
+    alert("Selecciona una señal y asegúrate de tener usuario.");
+    return;
+  }
+
+  this.http.post('http://localhost:5000/dashboard/user_signal', {
+    user_id: this.usuarioAEditar.id,
+    signal_id: this.selectedSignalId
+  }).subscribe({
+    next: () => {
+      alert("Señal asignada correctamente");
+      this.mostrarSelectorSenal = false;
+      this.selectedSignalId = null;
+    },
+    error: err => {
+      console.error(err);
+      alert("Ocurrió un error al asignar la señal");
+    }
+  });
+}
+
+  
 }

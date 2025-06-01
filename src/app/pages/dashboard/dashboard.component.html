@@ -1,2 +1,29 @@
-<p>dashboard works!</p>
-<div class="content"></div>
+<div class="form-container">
+  <label for="identification">Identificación del usuario (CC):</label>
+  <input
+    type="text"
+    id="identification"
+    [(ngModel)]="identification"
+    placeholder="Busqueda..."
+  />
+  <button (click)="loadSignal()">Consultar Señales</button>
+</div>
+
+<!-- Controles para cambiar de señal -->
+<div *ngIf="signals.length > 1" class="navigation-buttons">
+  <button (click)="previousSignal()" [disabled]="currentIndex === 0">◀ Anterior</button>
+  <button (click)="nextSignal()" [disabled]="currentIndex === signals.length - 1">Siguiente ▶</button>
+</div>
+
+
+<!-- Gráfico -->
+  <apx-chart
+  [series]="chartOptions.series"
+  [chart]="chartOptions.chart"
+  [xaxis]="chartOptions.xaxis"
+  [title]="chartOptions.title"
+></apx-chart>
+
+
+
+

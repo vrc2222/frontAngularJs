@@ -32,4 +32,8 @@ export class AuthService {
   delete(params: any) {
     return this._http.put<any>('http://localhost:5000/user/deleteUser', params);
   }
+  update(params: any) {
+  return this._http.put<any>('http://localhost:5000/user/updateUser', params);
+}
+
 }

@@ -35,3 +35,48 @@ mat-toolbar {
 .content {
   padding: 2rem;
 }
+
+.footer {
+  background: #AFC1CB;
+  color: #ffffff;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1 1 30%;
+  margin-bottom: 1rem;
+}
+
+.footer-section h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.footer-section p {
+  margin: 0.3rem 0;
+  color: #000000;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 30%;
+}
+
+.footer-logo img {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+}
+
+

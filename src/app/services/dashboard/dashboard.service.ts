@@ -1,3 +1,4 @@
+// dashboard.service.ts
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
@@ -8,9 +9,10 @@ export class DashboardService {
   private path = 'http://localhost:5000/dashboard';
   private readonly _http = inject(HttpClient);
 
-  constructor() { }
+  constructor() {}
 
-  dashBoard(identification: string){
-    return this._http.get<any>(`${this.path}/getImages/${identification}`)
+  getSignalsByUserId(identification: string) {
+    return this._http.post<any[]>(`${this.path}/get_user_signal`, { identification });
   }
 }
+

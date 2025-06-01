@@ -129,3 +129,43 @@
 .modal-buttons button:hover {
   opacity: 0.9;
 }
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.agregar-senal-btn {
+  background-color: #0b2b4b;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.agregar-senal-btn:hover {
+  opacity: 0.9;
+}
+
+.agregar-senal-btn {
+  margin-left: auto;
+  background-color: #0b2b4b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.selector-container {
+  margin-top: 10px;
+}
+
+select {
+  padding: 6px;
+  margin-right: 10px;
+  border-radius: 4px;
+}

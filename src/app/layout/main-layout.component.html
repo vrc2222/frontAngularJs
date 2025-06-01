@@ -1,6 +1,6 @@
 <mat-sidenav-container class="layout-container">
   <mat-sidenav mode="side" opened class="sidenav">
-    <h2 class="menu-title">Menu</h2>
+    <h2 class="menu-title">Menú</h2>
     <button mat-button routerLink="/home" routerLinkActive="active-link">
       <mat-icon>home</mat-icon> Home
     </button>
@@ -10,6 +10,7 @@
     <button mat-button routerLink="/dashboard" routerLinkActive="active-link">
       <mat-icon>dashboard</mat-icon> Dashboard
     </button>
+    <button mat-button (click)="logout()"><mat-icon>exit_to_app</mat-icon> Cerrar Sesión</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -22,5 +23,34 @@
     <div class="content">
       <router-outlet></router-outlet>
     </div>
+
+          <!-- 🔹 Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contáctanos</h3>
+        <p><strong>Tel:</strong> 604 509 278</p>
+        <p><strong>Dirección:</strong> Calle 10 A #22-04, El Poblado - Medellín (Antioquia)</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Emails</h3>
+        <p>ortega.daisy&#64;uces.edu.co</p>
+        <p>aguilar.sofia&#64;.edu.co</p>
+        <p>rodriguez.vanessa&#64;.edu.co</p>
+        <p>amado.asly&#64;.edu.co</p>
+      </div>
+      <!-- <div class = "footer-section">
+        <h3>Redes Sociales</h3>
+        <img src="face-icon.png" alt="facebook">
+        <img src="insta-icon.png" alt="instagram">
+        <img src="twit-icon.png" alt="twitter">
+
+      </div> -->
+      <div class="footer-logo">
+        <img src="logo-removebg-preview.png" alt="Logo" />
+      </div>
+    </div>
+  </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
