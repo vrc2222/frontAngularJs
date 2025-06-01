@@ -31,19 +31,23 @@ export class LoginComponent {
   error='';
   hidePassword=true;
 
-  login(){
-    console.log(this.username);
-    console.log(this.password);
-
-    const success= this.authService.login(this.username,this.password)
-    if (success){
-      this.router.navigate(['/home'])
-      console.log('I want to go HOMEEEEE')
-    }else{
-      this.error='Usuario o contraseña incorrectos'
+login() {
+  const params = { identification: this.username, password: this.password };
+  this.error = '';
+  this.authService.login(params).subscribe({
+    next: (response) => {
+      if (response) {
+        localStorage.setItem('auth-token', "token_true"); // Guardamos el token en el localStorage
+        this.router.navigate(['/home']);
+      } else {
+        this.error = 'Usuario o contraseña incorrectos';
+      }
+    },
+    error: (err) => {
+      // Aquí capturamos el mensaje que envía el backend
+      this.error = err.error?.message || 'Usuario o contraseña incorrectos';
     }
-  }
-  forgotPassword(){
-    console.log('Presione OLVIDAR PASSWORD')
-  }
+  });
+}
+
 }

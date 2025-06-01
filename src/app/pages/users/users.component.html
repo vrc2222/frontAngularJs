@@ -1,0 +1,155 @@
+<div class="section">
+  <h1>Crear o agregar usuarios</h1>
+
+  <div class="users-tools">
+    <button mat-icon-button (click)="abrirModal()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <table
+    mat-table
+    [dataSource]="usuarios"
+    class="mat-elevation-z2 tabla-usuarios"
+  >
+    <!-- Username Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let user">{{ user.username }}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+    </ng-container>
+
+    <!-- Identification Column -->
+    <ng-container matColumnDef="identification">
+      <th mat-header-cell *matHeaderCellDef>Identificacion (CC)</th>
+      <td mat-cell *matCellDef="let user">{{ user.identification }}</td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let user">
+        <button
+          mat-icon-button
+          color="primary"
+          aria-label="Editar usuario"
+          (click)="abrirEditarModal(user)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="warn"
+          aria-label="Eliminar usuario"
+          (click)="eliminarUsuario(user.id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <ng-template #sinUsuarios>
+    <p style="color: gray">No hay usuarios con rol USER registrados.</p>
+  </ng-template>
+</div>
+
+<div class="modal" *ngIf="mostrarModal">
+  <div class="modal-content">
+    <h2>Crear usuario</h2>
+    <form (ngSubmit)="crearUsuario()">
+      <label
+        >Nombre:
+        <input [(ngModel)]="nuevoUsuario.username" name="username" required
+      /></label>
+      <label
+        >Constraseña:
+        <input
+          type="password"
+          [(ngModel)]="nuevoUsuario.password"
+          name="password"
+          required
+      /></label>
+      <label
+        >Email:
+        <input
+          type="email"
+          [(ngModel)]="nuevoUsuario.email"
+          name="email"
+          required
+      /></label>
+      <label
+        >Identificacion:
+        <input
+          [(ngModel)]="nuevoUsuario.identification"
+          name="identification"
+          required
+      /></label>
+      <label
+        >Rol:
+        <select [(ngModel)]="nuevoUsuario.role" name="role" required>
+          <option value="USER">USER</option>
+          <option value="ADMIN">ADMIN</option>
+        </select>
+      </label>
+
+      <div class="modal-buttons">
+        <button type="submit">Guardar</button>
+        <button type="button" (click)="cerrarModal()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Modal de EDICIÓN -->
+<div class="modal" *ngIf="mostrarEditarModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Editar Usuario</h2>
+    </div>
+    <form (ngSubmit)="guardarEdicion()">
+      <label
+        >Nombre:
+        <input
+          [(ngModel)]="usuarioAEditar.username"
+          name="editUsername"
+          required
+        />
+      </label>
+      <label
+        >Email:
+        <input [(ngModel)]="usuarioAEditar.email" name="editEmail" required />
+      </label>
+      <p>
+        <strong>Identificacion (CC):</strong>
+        {{ usuarioAEditar.identification }}
+      </p>
+    </form>
+    <button
+      class="agregar-senal-btn"
+      type="button"
+      (click)="abrirSelectorSenal()"
+    >
+      Agregar señal
+    </button>
+    <div *ngIf="mostrarSelectorSenal">
+      <select [(ngModel)]="selectedSignalId">
+        <option *ngFor="let s of signals" [value]="s.id">
+          {{ s.type }}-{{ s.id }}
+        </option>
+      </select>
+      <button (click)="asignarSignal()">Asignar</button>
+    </div>
+    <div class="modal-buttons">
+      <button type="submit" (click)="guardarEdicion()">Guardar</button>
+      <button type="button" (click)="cerrarEditarModal()">Cancelar</button>
+    </div>
+  </div>
+</div>

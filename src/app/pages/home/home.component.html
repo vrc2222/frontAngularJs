@@ -1,11 +1,59 @@
+<div class="content">
+  <div class="section">
+    <h1>Home</h1>
+    <div class="info-panels">
+      <div class="panel">
+        <h2>¿Cómo funciona la plataforma?</h2>
+        <p>
+          Nos dedicamos a brindar atención médica integral, segura y de calidad,
+          centrada en las necesidades de cada paciente.
+        </p>
+        <p>
+          Visualiza y consulta datos médicos como señales vitales desde un panel seguro y fácil de usar.
+        </p>
+      </div>
+      <div class="panel">
+        <h2>Servicios</h2>
+        <p>
+          Ofrecemos una amplia gama de servicios de salud para atender a
+          nuestros pacientes en todas las etapas de su vida:
+        </p>
+        <ul>
+          <li>Nuestro sistema permite visualizar datos médicos en tiempo real, facilitando el seguimiento y diagnóstico del paciente.</li>
+          <li>Accede a señales como ECG o EEG desde el panel de control, y ayuda a los profesionales en su análisis clínico.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="conteiner-img">
+      <img src="doc_pat.png" alt="Salud IA" />
+      <div class="image-title">
+        <h1>El reto es mejorar la comunicación entre médicos y pacientes</h1>
+      </div>
+    </div>
+    <div class="blue-section">
+    <div class="service-card">
+      <img src="registro_user.jpg" alt="Consultas médicas">
+      <h3>Registro de usuarios</h3>
+    </div>
+    <div class="service-card">
+      <img src="asignacion_señales_biomed.webp" alt="Diagnóstico por imágenes">
+      <h3>Asignación de señales biomédicas</h3>
+    </div>
+    <div class="service-card">
+      <img src="ob_resultados.jpg" alt="Laboratorio clínico">
+      <h3>Observación de resultados</h3>
+    </div>
+    </div>
+  </div>
+</div>
 
+<!-- 
 <div class="main-container">
         <div class="sidebar">
             <h2>Menu</h2>
             <button (click)="showSection('home')">Home</button>
             <button (click)="showSection('users')">Usuarios</button>
             <button (click)="showSection('dashboard')">Dashboard</button>
-
         </div>
 
         <div class="content">
@@ -13,7 +61,7 @@
                 <img src="header_img.jpeg" alt="Salud IA">
             </div>
 
-            <!-- Sección HOME -->
+            
             <div *ngIf="currentSection === 'home'" class="section">
                 <h1>Home <span class="home-icon">🏠</span></h1>
                 <div class="info-panels">
@@ -28,35 +76,83 @@
                             <li>Consulta médica</li>
                             <li>Urgencias</li>
                             <li>Laboratorio clínico</li>
+
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Sección USERS -->
+            
             <div *ngIf="currentSection === 'users'" class="section">
-                <h1>Users</h1>
-                <div class="users-tools">
-                    <span>👤</span>
-                    <span>➕</span>
-                    <span>🗑️</span>
-                </div>
-                <div class="user-panel"></div>
+            <h1>Usuarios</h1>
+            <div class="users-tools">
+                <span>👤</span>
+                <span class="Boton-agregar" (click)="abrirModal()">➕</span>
+                <span>🗑️</span>
+            </div>
+            
+            
+            <div class="user-panel">
+                <ng-container *ngIf="usuarios.length > 0; else sinUsuarios">
+                    <table class="tabla-usuarios">
+                    <thead>
+                        <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Identificación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of usuarios">
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.identification }}</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </ng-container>
+
+                <ng-template #sinUsuarios>
+                    <p style="color: gray;">No hay usuarios con rol USER registrados.</p>
+                </ng-template>
             </div>
 
-            <!-- Sección DASHBOARD -->
+
+            
             <div *ngIf="currentSection === 'dashboard'" class="section">
-                <h1>Dashboard</h1>
-                <div class="search-bar">
-                    <label>🆔</label>
-                    <input type="text" placeholder="Buscar paciente...">
-                    <button>🔍</button>
-                </div>
-                <div class="chart">
-                    <img src="ekg_img.webp" alt="EKG">
-                </div>
+            <h1>Dashboard</h1>
+            <div class="search-bar">
+                <label>🆔</label>
+                <input type="text" placeholder="Buscar paciente...">
+                <button>🔍</button>
             </div>
+            <div class="chart">
+                <img src="ekg_img.webp" alt="EKG">
+            </div>
+            </div>
+
         </div>
 </div>
 
+<div class="modal" *ngIf="mostrarModal">
+  <div class="modal-content">
+    <h2>Crear usuario</h2>
+    <form (ngSubmit)="crearUsuario()">
+      <label>Username: <input [(ngModel)]="nuevoUsuario.username" name="username" required></label>
+      <label>Password: <input type="password" [(ngModel)]="nuevoUsuario.password" name="password" required></label>
+      <label>Email: <input type="email" [(ngModel)]="nuevoUsuario.email" name="email" required></label>
+      <label>Identification: <input [(ngModel)]="nuevoUsuario.identification" name="identification" required></label>
+      <label>Rol:
+        <select [(ngModel)]="nuevoUsuario.role" name="role" required>
+          <option value="USER">USER</option>
+          <option value="ADMIN">ADMIN</option>
+        </select>
+      </label>
 
+      <div class="modal-buttons">
+        <button type="submit">Guardar</button>
+        <button type="button" (click)="cerrarModal()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div> -->
