@@ -70,15 +70,7 @@
     margin-block: 0;
 }
 
-.login-form{
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-} */
+
 
 /* Estilo general del contenedor de login */
 .login_container {
